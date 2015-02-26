@@ -107,7 +107,7 @@ $ mkdir environments
 $ cd environments 
 $ mkdir env_vars
 $ cd env_vars
-copy files from [env_vars](https://github.com/jcalazan/ansible-django-stack/tree/master/env_vars) to the local env_vars folder
+copy files from [env_vars](https://github.com/johnrlive/ansible-django-stack/tree/master/env_vars/examples) to the local env_vars folder
 
 Where I store my local environement files:
 MyGitRepo/ansible/environments/env_vars/
