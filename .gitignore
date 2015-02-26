@@ -1,3 +1,5 @@
 .idea
 .vagrant
 vagrant_ansible_inventory_default
+#comment line below to push to production
+#env_vars/
