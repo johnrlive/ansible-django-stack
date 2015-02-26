@@ -98,3 +98,27 @@ ansible-playbook -i vagrant_ansible_inventory_default --private-key=~/.vagrant.d
 - [Ansible - Best Practices](http://docs.ansible.com/playbooks_best_practices.html)
 - [Setting up Django with Nginx, Gunicorn, virtualenv, supervisor and PostgreSQL](http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/)
 - [How to deploy encrypted copies of your SSL keys and other files with Ansible and OpenSSL](http://www.calazan.com/how-to-deploy-encrypted-copies-of-your-ssl-keys-and-other-files-with-ansible-and-openssl/)
+- 
+
+## Add Symlinks to environment
+I created an environments folder in my repo to keep my settings private.
+
+$ mkdir environments
+$ cd environments 
+$ mkdir env_vars
+$ cd env_vars
+copy files from [env_vars](https://github.com/jcalazan/ansible-django-stack/tree/master/env_vars) to the local env_vars folder
+
+Where I store my local environement files:
+MyGitRepo/ansible/environments/env_vars/
+
+$ cd env_vars
+$ ln -s ../../environments/env_vars/base.yml base.yml
+$ ln -s ../../environments/env_vars/dev.yml dev.yml
+$ ln -s ../../environments/env_vars/local.yml local.yml
+
+All files in ansible-django-stack/env_vars should point 
+$ ls
+base.yml -> ../../environments/env_vars/base.yml
+dev.yml -> ../../environments/env_vars/dev.yml
+local.yml -> ../../environments/env_vars/local.yml
