@@ -111,4 +111,5 @@ copy files from [env_vars](https://github.com/johnrlive/ansible-django-stack/tre
 
 ```
 ln -s ansible/symlink.sh symlink.sh
+sh symlink.sh
 ```
