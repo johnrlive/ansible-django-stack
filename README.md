@@ -102,20 +102,22 @@ ansible-playbook -i vagrant_ansible_inventory_default --private-key=~/.vagrant.d
 ## Add Symlinks to environment
 I created an environments folder in my repo to keep my settings private.
 
+```
 $ mkdir environments
 $ cd environments 
 $ mkdir env_vars
 $ cd env_vars
+```
 copy files from [env_vars](https://github.com/johnrlive/ansible-django-stack/tree/master/env_vars/examples) to the local env_vars folder
 
 Where I store my local environement files:
 MyGitRepo/ansible/environments/env_vars/
-
+```
 $ cd env_vars
 $ ln -s ../../environments/env_vars/base.yml base.yml
 $ ln -s ../../environments/env_vars/dev.yml dev.yml
 $ ln -s ../../environments/env_vars/local.yml local.yml
-
+```
 All files in ansible-django-stack/env_vars should point 
 $ ls
 base.yml -> ../../environments/env_vars/base.yml
