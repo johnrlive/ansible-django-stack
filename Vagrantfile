@@ -11,16 +11,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :private_network, ip: "192.168.33.15"
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--name", "MyCoolApp", "--memory", "512"]
+    vb.customize ["modifyvm", :id, "--name", "leadpager", "--memory", "512"]
   end
 
   # Shared folder from the host machine to the guest machine. Uncomment the line
   # below to enable it.
-  #config.vm.synced_folder "../../../my-cool-app", "/webapps/mycoolapp/my-cool-app"
+  $project = File.basename(Dir.getwd)
+  config.vm.synced_folder "./", "/webapps/#{$project}", :mount_options => ['dmode=777,fmode=777']
 
   # Ansible provisioner.
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "vagrant.yml"
+    ansible.playbook = "ansible/vagrant.yml"
     ansible.host_key_checking = false
     ansible.verbose = "v"
   end
